@@ -20,4 +20,7 @@ block content
                     td= book.publisher
                     td= book.genre
                     td= book.pg_number
-                    td= book.image
+                    td
+                     img.image(src= book.image)
+                    td
+                        a(href= `/books/profile/${book.id}`) View Profile
