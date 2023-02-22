@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     h3 Books
+    a(href= '/books/add') Add New Book
     table
         thead
             tr
@@ -11,6 +12,7 @@ block content
                 th genre
                 th Page Number
                 th Cover
+                th Description
                 th
         tbody
             each book in books
@@ -22,5 +24,6 @@ block content
                     td= book.pg_number
                     td
                      img.image(src= book.image)
+                    td= book.description
                     td
                         a(href= `/books/profile/${book.id}`) View Profile

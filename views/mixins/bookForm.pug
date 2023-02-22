@@ -22,12 +22,16 @@ mixin bookForm(books, genres, saveUrl, cancelUrl)
 
             div.form-input
                 label(for='pg_number') Page Number
-                input(id= 'pg_number' name= 'pg-number' value= book.pg_number)
+                input(id= 'pg_number' name= 'pg_number' value= book.pg_number)
 
             div.form-input
                 label(for='image') Cover Link
                 input(id= 'image' name= 'image' value= book.image)
 
+            div.form-input
+                label(for='description') Book Description
+                textarea(id= 'description' name='description' rows=10 columns=80) #{book.description}
+
             div.form-buttons
                 a.button(href=cancelUrl) Cancel
-                button.button(type='submit') Dave
+                button.button(type='submit') Save
