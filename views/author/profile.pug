@@ -7,3 +7,28 @@ block content
     div
         h3 Name: #{author.first_name} #{author.last_name}
         p Date-Of-Birth: #{author.dot}
+    h4 Author's Books
+    table
+        thead
+            tr
+                th Title
+                th Author
+                th Publisher
+                th Genre
+                th Page Number
+                th Cover
+                th Description
+                th
+        tbody
+            each book in author.books
+                tr
+                    td= book.title
+                    td= book.author
+                    td= book.publisher
+                    td= book.genre
+                    td= book.pg_number
+                    td
+                        img.image(src= book.image)
+                    td= book.description
+                    td
+                        a(href= `/books/profile/${book.id}`) View Book
