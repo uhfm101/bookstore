@@ -7,6 +7,15 @@ block content
     div
         h3 Name: #{author.first_name} #{author.last_name}
         p Date-Of-Birth: #{author.dot}
+
+    div.books
+        h4 Available Books
+        form(action=`/authors/${author.id}/add` method = 'post')
+            select(name= 'book' id = 'book' autocomplete= off)
+                each book in availableBooks
+                    option(value= book.id) #{book.title}
+            button.button(type= 'submit') Add
+
     h4 Author's Books
     table
         thead
@@ -32,3 +41,4 @@ block content
                     td= book.description
                     td
                         a(href= `/books/profile/${book.id}`) View Book
+                        a(href= `/authors/${author.id}/remove/${book.id}`) Remove Book

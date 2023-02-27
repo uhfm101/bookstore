@@ -12,7 +12,15 @@ block content
         p
             img.image_p(src= book.image)
         p Description: #{book.description}
+
     div.authors
+        h4 Available Authors
+            form(action=`/books/${book.id}/add` method = 'post')
+                select(name= 'author' id = 'author' autocomplete= off)
+                    each author in availableAuthors
+                        option(value= author.id) #{author.first_name, author.last_name}
+                button.button(type= 'submit') Add
+
         h4 Published Author(s)
         table
             thead

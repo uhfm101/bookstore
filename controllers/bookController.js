@@ -1,4 +1,4 @@
-const {Book} = require('../models')
+const {Book, Author, AuthorBooks} = require('../models')
 const genres = ['Novel', 'Fantasy', 'Fiction', 'Adventure Fiction', 'Drama', 'Biography'].sort()
 
 module.exports.viewAll = async function(req, res){
@@ -10,7 +10,14 @@ module.exports.viewProfile = async function(req, res){
     const book = await Book.findByPk(req.params.id, {
         include: 'authors'
     })
-    res.render('book/profile', {book})
+    const books = await Author.findAll();
+    let availableAuthors = []
+    for (let i = 0; i<authors.length; i++){
+        if(!bookHasAuthor(book, authors[i])) {
+            availableAuthors.push(authors[i])
+            }
+        }
+    res.render('book/profile', {book, availableAuthors})
 }
 
 module.exports.renderEditForm = async function(req, res){
@@ -68,4 +75,13 @@ module.exports.deleteBook = async function(req, res){
         }
     })
     res.redirect('/books')
+}
+
+function bookHasAuthor(book, author){
+    for (let i=0; i < book.authors.length; i++){
+        if(author.id === book.authors[i].id){
+            return true
+        }
+    }
+    return false
 }
