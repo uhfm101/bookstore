@@ -10,7 +10,7 @@ module.exports.viewProfile = async function(req, res){
     const book = await Book.findByPk(req.params.id, {
         include: 'authors'
     })
-    const books = await Author.findAll();
+    const authors = await Author.findAll();
     let availableAuthors = []
     for (let i = 0; i<authors.length; i++){
         if(!bookHasAuthor(book, authors[i])) {
@@ -75,6 +75,24 @@ module.exports.deleteBook = async function(req, res){
         }
     })
     res.redirect('/books')
+}
+
+module.exports.addAuthor = async function(req, res){
+    await AuthorBooks.create({
+        book_id: req.params.bookId,
+        author_id: req.body.author
+    })
+    res.redirect(`/books/profile/${req.params.bookId}`)
+}
+
+module.exports.removeAuthor = async function (req, res){
+    await AuthorBooks.destroy({
+        where: {
+            book_id: req.params.bookId,
+            author_id: req.params.authorId
+        }
+    })
+    res.redirect(`/books/profile/${req.params.bookId}`)
 }
 
 function bookHasAuthor(book, author){

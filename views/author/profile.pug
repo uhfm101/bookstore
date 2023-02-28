@@ -10,35 +10,41 @@ block content
 
     div.books
         h4 Available Books
-        form(action=`/authors/${author.id}/add` method = 'post')
-            select(name= 'book' id = 'book' autocomplete= off)
-                each book in availableBooks
-                    option(value= book.id) #{book.title}
-            button.button(type= 'submit') Add
+        if availableBooks.length>0
+            form(action=`/authors/${author.id}/add` method = 'post')
+                select(name= 'book' id = 'book' autocomplete= off)
+                    each book in availableBooks
+                        option(value= book.id) #{book.title}
+                button.button.primary(type= 'submit') Add
+        else
+            p Lack of remaining books
 
     h4 Author's Books
-    table
-        thead
-            tr
-                th Title
-                th Author
-                th Publisher
-                th Genre
-                th Page Number
-                th Cover
-                th Description
-                th
-        tbody
-            each book in author.books
+    if author.books.length>0
+        table
+            thead
                 tr
-                    td= book.title
-                    td= book.author
-                    td= book.publisher
-                    td= book.genre
-                    td= book.pg_number
-                    td
-                        img.image(src= book.image)
-                    td= book.description
-                    td
-                        a(href= `/books/profile/${book.id}`) View Book
-                        a(href= `/authors/${author.id}/remove/${book.id}`) Remove Book
+                    th Title
+                    th Author
+                    th Publisher
+                    th Genre
+                    th Page Number
+                    th Cover
+                    th Description
+                    th
+            tbody
+                each book in author.books
+                    tr
+                        td= book.title
+                        td= book.author
+                        td= book.publisher
+                        td= book.genre
+                        td= book.pg_number
+                        td
+                            img.image(src= book.image)
+                        td= book.description
+                        td
+                            a(href= `/books/profile/${book.id}`) View Book
+                            a(href= `/authors/${author.id}/remove/${book.id}`) Remove Book
+    else
+        p No books have been credited to this author
