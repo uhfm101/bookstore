@@ -5,10 +5,10 @@ block content
     a(href=`/books/edit/${book.id}`) Edit Book
     a(href=`/books/delete/${book.id}`) Delete Book
     div
-        p Author: #{book.author}
-        p Publisher: #{book.publisher}
-        p Genre: #{book.genre}
-        p Page Number: #{book.pg_number}
+        p.D Author: #{book.author}
+        p.D Publisher: #{book.publisher}
+        p.D Genre: #{book.genre}
+        p.D Page Number: #{book.pg_number}
         p
             img.image_p(src= book.image)
         p Description: #{book.description}
