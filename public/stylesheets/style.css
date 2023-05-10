@@ -1,0 +1,136 @@
+
+
+body {
+  padding: 0px;
+  font: 14px 'molotregular';
+  background: #802a2a;
+  margin: 0;
+}
+
+a {
+  color: goldenrod;
+  display: inline-block;
+  margin-right: 16px;
+  text-decoration: none;
+  font-family: 'Bungee Inline';
+}
+
+
+.image{
+  width: 100px;
+  height: 100px;
+  border-style: double;
+  border-color: goldenrod;
+}
+
+.image_p{
+  width: 100px;
+  height: 100px;
+  border-style: double;
+  border-color: goldenrod;
+}
+
+nav{
+  width: 100%;
+  background: #3f1616;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul{
+  display: flex;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.store-title{
+  font-size: 40px;
+  color: darkgoldenrod;
+  font-weight: bolder;
+  border-style: ridge;
+  border-color: goldenrod;
+  font-family: 'Bungee Inline';
+}
+
+nav li a{
+  display: block;
+  padding: 30px;
+  color: goldenrod;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Bungee Inline";
+}
+
+.nav-content{
+  max-width: 500px;
+  width: 100%;
+  margin-left: 1000px;
+}
+
+.container{
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-content{
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+table{
+  width: 100%;
+  border-radius: 8px;
+  border-collapse: collapse;
+}
+
+td, th{
+  padding: 8px 9px;
+  text-align: left;
+}
+
+td{
+  border-top: 1px solid darkgoldenrod;
+}
+
+th{
+  color: darkgoldenrod;
+}
+
+.form-input{
+  margin-bottom: 8px;
+}
+
+label{
+  display: block;
+  font-weight: bold;
+}
+
+.button{
+  border-radius: 9px;
+  padding: 4px 4px;
+  border: 1px goldenrod;
+  color: black;
+  background: gold;
+}
+
+.button.primary{
+  border-color: goldenrod;
+  color: black;
+  border-color: goldenrod;
+  font-family: 'Bungee Inline';
+  font-size: 10px;
+}
+
+.small{
+  width: 70px;
+  height: 60px;
+}
+
+.D{
+  color: #ab9c31;
+}
